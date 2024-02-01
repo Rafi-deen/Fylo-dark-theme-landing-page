@@ -121,13 +121,31 @@ button {
   margin-top: 10rem;
 }
 
-.row {
+.row,
+.nav,
+.nav-links > ul,
+.link > a,
+.profile,
+.f1,
+.footer4,
+.icons {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.col {
+.col,
+.main,
+.section1,
+.section2,
+.sec2-content,
+.testimonials,
+.section4,
+.form,
+.footer1,
+.contacts,
+.footer2 > ul,
+.footer3 > ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -139,20 +157,31 @@ button {
 }
 
 .nav {
+  padding-block: 2rem;
   justify-content: space-between;
 
   .logo {
-    width: 200px;
+    max-width: 100px;
+  }
+
+  li {
+    font-size: 0.75rem;
   }
 }
 
 .main {
-    img {
-        margin-block: 4rem 2rem;
-    }
+  max-width: 600px;
+  margin-inline: auto;
+
+  img {
+    margin-block: 2rem;
+  }
   button {
-    width: min(80%, 360px);
+    width: min(80%, 300px);
     margin-top: 1rem;
+  }
+  p {
+    max-width: 500px;
   }
 }
 
@@ -164,6 +193,7 @@ button {
 
 .section1 {
   gap: 6rem;
+
   img {
     margin-inline: auto;
     margin-bottom: 2rem;
@@ -171,46 +201,84 @@ button {
   h3 {
     margin-bottom: 1rem;
   }
+  p {
+    margin-inline: auto;
+    max-width: 600px;
+  }
 }
 
 .section2 {
-    .image {
-        margin-bottom: 2rem;
-    }
-}
+  max-width: 600px;
+  margin-inline: auto;
+  .image {
+    margin-bottom: 2rem;
+  }
 
+  .link > a {
+    color: $CyanButton;
+    position: relative;
+    align-items: center;
+    width: fit-content;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .link > a::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: $CyanButton;
+  }
+}
 .section3 {
-  gap: 2rem;
+  width: 90%;
+  max-width: 600px;
+  margin-inline: auto;
 
   img {
-    width: 32px;
-    border-radius: 50%;
-  }
-  & > div {
-    background-color: $DarkBlueTest;
-    width: min(80%, 600px);
-    margin-inline: auto;
-    padding: 2rem;
+    margin-bottom: -10px;
   }
 
-  .name {
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
+  .testimonials {
+    gap: 2rem;
 
-  .name + p {
-    font-size: 0.75rem;
-  }
+    img {
+      width: 32px;
+      border-radius: 50%;
+    }
+    & > div {
+      background-color: $DarkBlueTest;
+      width: min(100%, 560px);
+      margin-inline: auto;
+      padding: 2rem;
+    }
 
-  .profile {
-    margin-top: 1rem;
+    .name {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .name + p {
+      font-size: 0.75rem;
+    }
+
+    .profile {
+      margin-top: 1.5rem;
+    }
   }
 }
 
 .section4 {
   background-color: $DarkBlueIntro;
+  max-width: 600px;
+  margin-inline: auto;
+  position: relative;
   padding: 2rem;
   text-align: center;
+  margin-bottom: -22rem;
 
   .form {
     margin-top: 1rem;
@@ -226,12 +294,17 @@ button {
 
 .footer {
   background-color: $DarkBlue;
-  padding-inline: 5%;
+  padding: 20rem 5% 3rem 5%;
 
   .footer1 {
     margin-top: 2rem;
+
+    .address {
+      max-width: 600px;
+    }
+
     img {
-      width: 2.5%;
+      width: 20px;
     }
 
     .f1 > p {
@@ -244,7 +317,101 @@ button {
   }
 
   .footer2,
+  .footer4 {
+    margin-top: 6rem;
+  }
+
   .footer3 {
-    margin-top: 3rem;
+    margin-top: 4rem;
+  }
+
+  .footer4 {
+    .icons > * {
+      flex-grow: 1;
+      border: 1px solid $White;
+      border-radius: 50%;
+      width: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .nav {
+    .nav-links ul {
+      gap: 3rem;
+
+      li {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .section1,
+  .section2,
+  .section3 {
+    width: 90%;
+    max-width: 1800px;
+    margin-inline: auto;
+  }
+
+  .section1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section2,
+  .testimonials,
+  .form {
+    flex-direction: row;
+  }
+  input {
+    flex-grow: 1;
+  }
+  .section2 {
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .section4 {
+    margin-bottom: -18rem;
+    max-width: 800px;
+  }
+  .footer {
+    padding-top: 14rem;
+
+    .footer-content {
+      display: grid;
+      align-items: flex-start;
+      gap: 5rem;
+      grid-auto-flow: column;
+    }
+
+    .footer1 {
+      gap: 2rem;
+      display: grid;
+      grid-auto-flow: column;
+      margin-top: 2rem;
+
+      .address {
+        align-items: flex-start;
+        p {
+          margin: 0;
+        }
+      }
+
+      img {
+        width: 24px;
+      }
+    }
+    .footer2,
+    .footer3,
+    .footer4 {
+      margin-top: 2rem;
+    }
   }
 }

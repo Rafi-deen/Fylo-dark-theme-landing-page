@@ -93,13 +93,31 @@ button {
   margin-top: 10rem;
 }
 
-.row {
+.row,
+.nav,
+.nav-links > ul,
+.link > a,
+.profile,
+.f1,
+.footer4,
+.icons {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.col {
+.col,
+.main,
+.section1,
+.section2,
+.sec2-content,
+.testimonials,
+.section4,
+.form,
+.footer1,
+.contacts,
+.footer2 > ul,
+.footer3 > ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -111,18 +129,29 @@ button {
 }
 
 .nav {
+  padding-block: 2rem;
   justify-content: space-between;
 }
 .nav .logo {
-  width: 200px;
+  max-width: 100px;
+}
+.nav li {
+  font-size: 0.75rem;
 }
 
+.main {
+  max-width: 600px;
+  margin-inline: auto;
+}
 .main img {
-  margin-block: 4rem 2rem;
+  margin-block: 2rem;
 }
 .main button {
-  width: min(80%, 360px);
+  width: min(80%, 300px);
   margin-top: 1rem;
+}
+.main p {
+  max-width: 500px;
 }
 
 .main,
@@ -141,39 +170,77 @@ button {
 .section1 h3 {
   margin-bottom: 1rem;
 }
+.section1 p {
+  margin-inline: auto;
+  max-width: 600px;
+}
 
+.section2 {
+  max-width: 600px;
+  margin-inline: auto;
+}
 .section2 .image {
   margin-bottom: 2rem;
 }
+.section2 .link > a {
+  color: hsl(176, 68%, 64%);
+  position: relative;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+.section2 .link > a::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: hsl(176, 68%, 64%);
+}
 
 .section3 {
-  gap: 2rem;
+  width: 90%;
+  max-width: 600px;
+  margin-inline: auto;
 }
 .section3 img {
+  margin-bottom: -10px;
+}
+.section3 .testimonials {
+  gap: 2rem;
+}
+.section3 .testimonials img {
   width: 32px;
   border-radius: 50%;
 }
-.section3 > div {
+.section3 .testimonials > div {
   background-color: hsl(219, 30%, 18%);
-  width: min(80%, 600px);
+  width: min(100%, 560px);
   margin-inline: auto;
   padding: 2rem;
 }
-.section3 .name {
+.section3 .testimonials .name {
   font-weight: 700;
   letter-spacing: 1px;
 }
-.section3 .name + p {
+.section3 .testimonials .name + p {
   font-size: 0.75rem;
 }
-.section3 .profile {
-  margin-top: 1rem;
+.section3 .testimonials .profile {
+  margin-top: 1.5rem;
 }
 
 .section4 {
   background-color: hsl(217, 28%, 15%);
+  max-width: 600px;
+  margin-inline: auto;
+  position: relative;
   padding: 2rem;
   text-align: center;
+  margin-bottom: -22rem;
 }
 .section4 .form {
   margin-top: 1rem;
@@ -187,13 +254,16 @@ button {
 
 .footer {
   background-color: hsl(216, 53%, 9%);
-  padding-inline: 5%;
+  padding: 20rem 5% 3rem 5%;
 }
 .footer .footer1 {
   margin-top: 2rem;
 }
+.footer .footer1 .address {
+  max-width: 600px;
+}
 .footer .footer1 img {
-  width: 2.5%;
+  width: 20px;
 }
 .footer .footer1 .f1 > p {
   width: 95%;
@@ -202,6 +272,85 @@ button {
   gap: 1.5rem;
 }
 .footer .footer2,
+.footer .footer4 {
+  margin-top: 6rem;
+}
 .footer .footer3 {
-  margin-top: 3rem;
+  margin-top: 4rem;
+}
+.footer .footer4 .icons > * {
+  flex-grow: 1;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+}
+
+@media only screen and (min-width: 1200px) {
+  .nav .nav-links ul {
+    gap: 3rem;
+  }
+  .nav .nav-links ul li {
+    font-size: 1rem;
+  }
+  .section1,
+  .section2,
+  .section3 {
+    width: 90%;
+    max-width: 1800px;
+    margin-inline: auto;
+  }
+  .section1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section2,
+  .testimonials,
+  .form {
+    flex-direction: row;
+  }
+  input {
+    flex-grow: 1;
+  }
+  .section2 {
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .section4 {
+    margin-bottom: -18rem;
+    max-width: 800px;
+  }
+  .footer {
+    padding-top: 14rem;
+  }
+  .footer .footer-content {
+    display: grid;
+    align-items: flex-start;
+    gap: 5rem;
+    grid-auto-flow: column;
+  }
+  .footer .footer1 {
+    gap: 2rem;
+    display: grid;
+    grid-auto-flow: column;
+    margin-top: 2rem;
+  }
+  .footer .footer1 .address {
+    align-items: flex-start;
+  }
+  .footer .footer1 .address p {
+    margin: 0;
+  }
+  .footer .footer1 img {
+    width: 24px;
+  }
+  .footer .footer2,
+  .footer .footer3,
+  .footer .footer4 {
+    margin-top: 2rem;
+  }
 }/*# sourceMappingURL=style.css.map */
